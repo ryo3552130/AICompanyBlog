@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 </head>
 <body>
   <header>
     <nav>
-      <a href="/" class="site-title">{{ .Site.Title }}</a>
+      <a href="{{ .Site.BaseURL }}" class="site-title">{{ .Site.Title }}</a>
       <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/posts/">Posts</a>
-        <a href="/tags/">Tags</a>
+        <a href="{{ .Site.BaseURL }}">Home</a>
+        <a href="{{ "posts/" | relURL }}">Posts</a>
+        <a href="{{ "tags/" | relURL }}">Tags</a>
       </div>
     </nav>
   </header>
