@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="home">
+  <h1>{{ .Site.Title }}</h1>
+  <p class="description">{{ .Site.Params.description }}</p>
+  <h2>最新の記事</h2>
+  <div class="posts">
+    {{ range .Site.RegularPages.ByDate.Reverse }}
+    <article class="post-card">
+      <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+      <time>{{ .Date.Format "2006-01-02" }}</time>
+      <p>{{ .Summary }}</p>
+      {{ with .Params.tags }}
+      <div class="tags">
+        {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,13 @@
+baseURL = "http://localhost:1313/"
+languageCode = "ja"
+title = "AICompany Tech Blog"
+
+[params]
+  description = "AICompanyの技術ブログ - マルチAIエージェントシステムの開発記録"
+  author = "AICompany Team"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.highlight]
+  style = "monokai"
