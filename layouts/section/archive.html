@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="archive">
+  <h1>月別アーカイブ</h1>
+  <p class="description">記事を月別に探す</p>
+  
+  {{ $pages := where .Site.RegularPages "Type" "posts" }}
+  {{ range $pages.GroupByDate "2006年01月" }}
+  <div class="archive-month">
+    <h2>{{ .Key }}</h2>
+    <ul class="archive-list">
+      {{ range .Pages }}
+      <li>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "01/02" }}</time>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+</div>
+{{ end }}

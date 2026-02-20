@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="taxonomy">
+  <h1>カテゴリ: {{ .Title }}</h1>
+  <p class="taxonomy-count">{{ len .Pages }}件の記事</p>
+  
+  <div class="posts">
+    {{ range .Pages.ByDate.Reverse }}
+    <article class="post-card">
+      <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">📅 {{ .Date.Format "2006年01月02日" }}</time>
+      <p>{{ .Description | default .Summary | plainify | truncate 150 }}</p>
+      {{ with .Params.tags }}
+      <div class="tags">
+        {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="taxonomy-list">
+  <h1>カテゴリ一覧</h1>
+  <p class="description">記事をカテゴリ別に探す</p>
+  
+  <div class="taxonomy-terms">
+    {{ range .Data.Terms.Alphabetical }}
+    <div class="taxonomy-term">
+      <h3><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></h3>
+      <p class="count">{{ len .Pages }}件の記事</p>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
