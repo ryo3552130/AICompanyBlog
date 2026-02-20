@@ -1,0 +1,15 @@
+<aside class="sidebar">
+  <div class="sidebar-section">
+    <h3>月別アーカイブ</h3>
+    <ul class="archive-list-compact">
+      {{ range (.Site.RegularPages.GroupByDate "2006-01") }}
+      <li>
+        <a href="{{ $.Site.BaseURL }}archive/#{{ .Key }}">
+          {{ .Key }}
+          <span class="count">({{ len .Pages }})</span>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</aside>

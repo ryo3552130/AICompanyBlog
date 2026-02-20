@@ -20,9 +20,12 @@
       </div>
     </nav>
   </header>
-  <main>
-    {{ block "main" . }}{{ end }}
-  </main>
+  <div class="container">
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "sidebar.html" . }}
+  </div>
   <footer>
     <p>&copy; {{ now.Year }} {{ .Site.Params.author }}. Built with <a href="https://gohugo.io">Hugo</a>.</p>
   </footer>
